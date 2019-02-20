@@ -212,7 +212,7 @@ export default class DatePicker extends PureComponent {
     }
 
     for (let i = 0; i <= 59; i += 1) {
-      if (this.props.minuteInterval !== null) {
+      if (this.props.minuteInterval) {
         if (i % this.props.minuteInterval === 0) {
           minutes.push(i);
         }
