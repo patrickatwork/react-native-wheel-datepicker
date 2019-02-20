@@ -39,6 +39,7 @@ export default class DatePicker extends PureComponent {
     textColor: ColorPropType,
     textSize: PropTypes.number,
     itemSpace: PropTypes.number,
+    minuteInterval: PropTypes.number,
   };
 
   static defaultProps = {
@@ -211,7 +212,13 @@ export default class DatePicker extends PureComponent {
     }
 
     for (let i = 0; i <= 59; i += 1) {
-      minutes.push(i);
+      if (this.props.minuteInterval !== null) {
+        if (i % this.props.minuteInterval === 0) {
+          minutes.push(i);
+        }
+      } else {
+        minutes.push(i);
+      }
     }
 
     return [
